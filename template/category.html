@@ -1,0 +1,59 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block title %}
+Catogory
+{% endblock title %}
+
+{% block body %}
+
+
+
+<div class="container">
+  <div class="row">
+    <h2>{{categoryname.NAME}} New Collections</h2>
+    <div class="col-2">
+      <table class="table table-success table-striped">
+
+        <tbody>
+
+          {% for i in catname %}
+          <tr>
+            <td>{{i.name}}</td>
+
+          </tr>
+          {% endfor %}
+
+        </tbody>
+      </table>
+    </div>
+    <div class="col-10">
+      <div class="row">
+
+        {% for j in productscat %}
+        <div class="col">
+
+          <div class="card" style="width: 20rem; height: 30rem;">
+            <a href="{%url 'details' j.id%}" class="text-decoration-none">
+
+              <img src="{{j.image.url}}" class="card-img-top" alt="...">
+              <div class="card-body">
+                <h5 class="card-title text-dark">{{j.name}}</h5>
+                <p class="card-text text-dark">{{j.description}}</p>
+              </div>
+            </a>
+            <a href="{%url 'details' j.id%}" class="btn btn-primary">View Details</a>
+
+          </div>
+
+        </div>
+
+        {% endfor %}
+
+
+
+
+      </div>
+    </div>
+  </div>
+</div>
+{% endblock body %}
