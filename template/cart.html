@@ -19,7 +19,8 @@
           <div class="card-body">
             <!-- Single item -->
             {% if not cart_items %}
-            <h5 class="mb-0">Shopping Cart is Empty</h5>
+            <h5 class="mb-0">Your Shopping Cart is Empty!</h5>
+            <a href="{% url 'index' %}"><p>Click here to continue shopping</p></a>
 
             {% else %}
 
@@ -112,7 +113,9 @@
         
       </div>
       <div class="col-md-4">
+        {% if cart_items %}
         <div class="card mb-4">
+          
           <div class="card-header py-3">
             <h5 class="mb-0">Summary</h5>
           </div>
@@ -138,7 +141,10 @@
               Continue Shopping
             </a>
           </div>
+          
+          
         </div>
+        {% endif %}
       </div>
     </div>
   </div>
